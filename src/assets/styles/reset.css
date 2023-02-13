@@ -136,3 +136,8 @@ a {
 strong {
   font-weight: bold;
 }
+
+button {
+  border: none;
+  font: inherit;
+}
