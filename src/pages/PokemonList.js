@@ -49,6 +49,7 @@ export default function PokemonList() {
 }
 
 const Container = styled.div`
+  font-family: "Kanit", sans-serif;
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -57,6 +58,7 @@ const Container = styled.div`
 `;
 
 const Footer = styled.div`
+  font-family: "Kanit", sans-serif;
   background: #e44141;
   padding: 10px 0;
   box-shadow: 0 -4px 10px 5px rgba(0, 0, 0, 0.2);

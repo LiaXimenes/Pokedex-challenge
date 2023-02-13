@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 
 export default function PokemonBox(props) {
   const { pokemon } = props;
 
   return (
-    <Pokemon>
-      <p className="name">{pokemon.name}</p>
-    </Pokemon>
+    <Link to={`/details/${pokemon.name}`}>
+      <Pokemon>
+        <p className="name">{pokemon.name}</p>
+      </Pokemon>
+    </Link>
   );
 }
 
