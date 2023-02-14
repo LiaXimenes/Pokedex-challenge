@@ -26,8 +26,6 @@ export default function PokemonList() {
     getPokemons();
   }, []);
 
-  console.log(pokemons);
-
   return (
     <>
       <Header></Header>

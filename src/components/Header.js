@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import logo from "../assets/images/logo-pokedex.png";
@@ -5,7 +6,9 @@ import logo from "../assets/images/logo-pokedex.png";
 export default function Header() {
   return (
     <Container>
-      <img src={logo} alt="Logo" />
+      <Link to={"/"}>
+        <img src={logo} alt="Logo" />
+      </Link>
     </Container>
   );
 }

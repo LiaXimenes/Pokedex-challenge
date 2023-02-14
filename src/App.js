@@ -7,7 +7,7 @@ export default function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/pokemons" element={<PokemonList />} />
+          <Route path="/" element={<PokemonList />} />
           <Route path="/details/:id" element={<PokemonDetails />} />
         </Routes>
       </BrowserRouter>

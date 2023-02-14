@@ -13,7 +13,7 @@ export default function PokemonDetails() {
   const [showAbilities, setShowAbilities] = useState(false);
   const [showTypes, setShowTypes] = useState(false);
 
-  function toogleShowAbilities() {
+  function toggleShowAbilities() {
     if (showAbilities === true) {
       setShowAbilities(false);
     } else {
@@ -21,7 +21,7 @@ export default function PokemonDetails() {
     }
   }
 
-  function toogleShowTypes() {
+  function toggleShowTypes() {
     if (showTypes === true) {
       setShowTypes(false);
     } else {
@@ -37,43 +37,45 @@ export default function PokemonDetails() {
       });
   }, [id]);
 
-  console.log(pokemon);
-
   return (
     <>
       <Header></Header>
       {pokemon ? (
         <Pokemon>
-          <p className="name">Name: {pokemon.name}</p>
-          <p className="order">Order: {pokemon.order}</p>
-          <p className="weight">Weight: {pokemon.weight}</p>
-          <p className="experience">Experience: {pokemon.base_experience}</p>
-          <Collapse onClick={toogleShowAbilities}>
-            {showAbilities ? (
-              <>Abilities: {pokemon.abilities.length} (hide)</>
-            ) : (
-              <>Abilities: {pokemon.abilities.length} (show more)</>
-            )}
-            {showAbilities ? (
-              pokemon.abilities.map((a) => (
-                <p key={a.ability.name}>{a.ability.name}</p>
-              ))
-            ) : (
-              <></>
-            )}
-          </Collapse>
-          <Collapse onClick={toogleShowTypes}>
-            {showTypes ? (
-              <>Types: {pokemon.types.length} (hide)</>
-            ) : (
-              <>Types: {pokemon.types.length} (show more)</>
-            )}
-            {showTypes ? (
-              pokemon.types.map((t) => <p key={t.type.name}>{t.type.name}</p>)
-            ) : (
-              <></>
-            )}
-          </Collapse>
+          <div>
+            <p className="name">Name: {pokemon.name}</p>
+            <p className="order">Order: {pokemon.order}</p>
+            <p className="weight">Weight: {pokemon.weight}</p>
+            <p className="experience">Experience: {pokemon.base_experience}</p>
+            <Collapse onClick={toggleShowAbilities}>
+              {showAbilities ? (
+                <>Abilities: {pokemon.abilities.length} (hide)</>
+              ) : (
+                <>Abilities: {pokemon.abilities.length} (show)</>
+              )}
+              {showAbilities ? (
+                pokemon.abilities.map((a) => (
+                  <p key={a.ability.name}>{a.ability.name}</p>
+                ))
+              ) : (
+                <></>
+              )}
+            </Collapse>
+            <Collapse onClick={toggleShowTypes}>
+              {showTypes ? (
+                <>Types: {pokemon.types.length} (hide)</>
+              ) : (
+                <>Types: {pokemon.types.length} (show)</>
+              )}
+              {showTypes ? (
+                pokemon.types.map((t) => <p key={t.type.name}>{t.type.name}</p>)
+              ) : (
+                <></>
+              )}
+            </Collapse>
+          </div>
+          <img src={pokemon.sprites.front_default} alt={pokemon.name}></img>
+          <img src={pokemon.sprites.back_default} alt={pokemon.name}></img>
         </Pokemon>
       ) : (
         <p>Loading</p>
@@ -93,10 +95,20 @@ const Pokemon = styled.div`
   p {
     padding: 10px 0 5px 10px;
   }
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  img {
+    height: 30%;
+    width: 30%;
+  }
 `;
 
 const Collapse = styled.div`
   padding: 10px 0 5px 10px;
+  width: 150px;
   :hover {
     cursor: pointer;
   }
