@@ -101,8 +101,8 @@ const Pokemon = styled.div`
   justify-content: space-between;
 
   img {
-    height: 30%;
-    width: 30%;
+    height: 17%;
+    width: 17%;
   }
 `;
 
